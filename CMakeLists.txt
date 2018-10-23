@@ -2,7 +2,6 @@ cmake_minimum_required(VERSION 2.8)
 project(decodeqr C CXX)
 
 find_package(OpenCV REQUIRED)
-include_directories(${OpenCV_INCLUDES})
 set(CMAKE_CXX_FLAGS "-fpermissive")
 
 set(lib_sources
