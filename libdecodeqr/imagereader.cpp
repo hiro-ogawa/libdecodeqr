@@ -652,7 +652,7 @@ namespace Qr{
 
         CvMat *map=cvCreateMat(3,3,CV_64FC1);
         
-        cvWarpPerspectiveQMatrix(spts,dpts,map);
+        cvGetPerspectiveTransform(spts, dpts, map);
         
         //
         // perspective transform
@@ -1050,7 +1050,7 @@ namespace Qr{
         CvMat src_stub, dst_stub;
         CvMat *srcMat,*dstMat,*mean,*mask;
         
-        __BEGIN__
+        __CV_BEGIN__
         if( adaptive_method != CV_ADAPTIVE_THRESH_MEAN_C &&
             adaptive_method != CV_ADAPTIVE_THRESH_GAUSSIAN_C )
             CV_ERROR( CV_StsBadArg,
@@ -1091,9 +1091,8 @@ namespace Qr{
         
         cvReleaseMat( &mask );
         cvReleaseMat( &mean );
-        
-        __END__
-            
+
+        __CV_END__
     }
     
 }
